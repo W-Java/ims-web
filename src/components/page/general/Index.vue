@@ -2,6 +2,8 @@
   <div class="page">
     <div>{{ username }}，您好！</div>
 
+
+
     <div v-if="student && this.$store.state.monitorBrowsingStatus === 'student'">
       <el-row>
         <template>
