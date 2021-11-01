@@ -8,19 +8,9 @@
       <el-row>
         <template>
           <el-carousel :interval="4000" type="card" height="240px">
-            <el-carousel-item
-              v-for="(carouselItem, index) in carouselItems.length"
-              :key="index"
-            >
-              <a
-                class="carousel_card"
-                :href="carouselItems[index].link"
-                target="_blank"
-              >
-                <img
-                  :src="carouselItems[index].src"
-                  style="width: 100%; height: 240px"
-                />
+            <el-carousel-item v-for="(carouselItem, index) in carouselItems.length" :key="index">
+              <a class="carousel_card" :href="carouselItems[index].link" target="_blank">
+                <img :src="carouselItems[index].src" style="width: 100%; height: 240px"/>
               </a>
             </el-carousel-item>
           </el-carousel>
