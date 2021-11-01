@@ -1,13 +1,7 @@
 <template>
   <div>
     <h1>系统消息中心</h1>
-    <el-table
-      :data="sysMsgTableData"
-      width="100%"
-      @row-click="handleRowClick"
-      v-loading="whileLoading"
-      :stripe="true"
-    >
+    <el-table :data="sysMsgTableData" width="100%" @row-click="handleRowClick" v-loading="whileLoading" :stripe="true">
       <el-table-column width="16">
         <template slot-scope="scope">
           <div class="circle" v-if="scope.row.status === '未读'"></div>
