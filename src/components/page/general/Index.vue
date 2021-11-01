@@ -22,6 +22,7 @@ import timeLine from "@/components/element/timeline";
 import dynamicForm from "@/components/element/dynamicForm";
 import StudentIndex from "./StudentIndex.vue";
 import InstructorIndex from "./InstructorIndex.vue";
+
 export default {
   name: "index",
   components: {
