@@ -1,13 +1,13 @@
 import { get, post, put, deletefn } from './index'
 
 //检查是否已经登录
-export const checkLogin = () => post("/13/live")
+export const checkLogin = () => post("/sm/live")
 
 //获取图片验证码
-export const getVerificationCode = () => post("/13/captchaImage")
+export const getVerificationCode = () => post("/sm/verify")
 
 //账密登录
-export const submitLogin = data => post("/13/login", data)
+export const submitLogin = data => post("/sm/login", data)
 
 //重置密码
-export const resetPassWord=data => post("/13/user/doResetPassword", data)
+export const resetPassWord=data => post("/sm/user/doResetPassword", data)

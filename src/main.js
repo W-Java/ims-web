@@ -67,7 +67,6 @@ let vue = new Vue({
   qiniu,
   template: '<App/>',
   components: { App },
-
 });
 
 export default vue
