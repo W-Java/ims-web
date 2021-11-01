@@ -2,9 +2,7 @@
   <div class="page">
     <div>{{ username }}，您好！</div>
 
-    <div
-      v-if="student && this.$store.state.monitorBrowsingStatus === 'student'"
-    >
+    <div v-if="student && this.$store.state.monitorBrowsingStatus === 'student'">
       <el-row>
         <template>
           <el-carousel :interval="4000" type="card" height="240px">
@@ -22,17 +20,12 @@
         <el-col class="middleSpace">
           <el-col :span="5" class="businessCard">
             <el-row>
-              <img
-                :src="photo"
-                v-if="photo"
-                style="
+              <img :src="photo" v-if="photo" style="
                   height: 80%;
                   width: 80%;
                   margin-top: 10px;
                   max-width: 280px;
-                "
-                title="照片"
-              />
+                " title="照片"/>
             </el-row>
             <el-row :gutter="20" class="businessCard_name">
               <el-col :span="12" style="text-align: right">姓名</el-col>
@@ -48,22 +41,16 @@
                 stuMajorAndClass
               }}</el-col>
             </el-row>
-            <el-row
-              :gutter="20"
-              class="businessCard_IDNumber"
-              style="margin-bottom: 5px"
-            >
+            <el-row :gutter="20" class="businessCard_IDNumber" style="margin-bottom: 5px">
               <el-col :span="12" style="text-align: right">学号</el-col>
-              <el-col :span="12" style="text-align: left">{{
-                stuIDNumber
-              }}</el-col>
+              <el-col :span="12" style="text-align: left">
+                {{stuIDNumber }}
+              </el-col>
             </el-row>
             <el-row style="margin-top: 60px">
-              <el-button
-                style="width: 80%; max-width: 280px"
-                @click="handleInfoManagement"
-                >详细个人信息</el-button
-              >
+              <el-button style="width: 80%; max-width: 280px" @click="handleInfoManagement">
+                详细个人信息
+              </el-button>
             </el-row>
           </el-col>
 
@@ -72,49 +59,30 @@
             <el-row>
               <el-col class="notificationAndStat">
                 <el-row style="margin-top: 10px">
-                  <el-col
-                    :span="12"
-                    style="font-weight: bolder; text-align: left"
-                    >&nbsp&nbsp通知</el-col
-                  >
+                  <el-col :span="12" style="font-weight: bolder; text-align: left">
+                    &nbsp&nbsp通知
+                  </el-col>
                   <el-col :span="12" style="text-align: right">
-                    <el-button
-                      icon="el-icon-more"
-                      style="
+                    <el-button icon="el-icon-more" style="
                         margin-right: 10px;
                         height: 1.5em;
                         padding-top: 2px;
-                      "
-                      @click="moreNotifications"
-                    >
+                      " @click="moreNotifications">
                       更多
                     </el-button>
                   </el-col>
                 </el-row>
                 <el-row>
                   <template>
-                    <el-table
-                      :data="notificationTableData"
-                      style="width: 98%; margin-left: auto; margin-right: auto"
-                      :show-header="false"
-                      @row-click="handleNotificationRowClick"
-                    >
+                    <el-table :data="notificationTableData" style="width: 98%; margin-left: auto; margin-right: auto" :show-header="false" @row-click="handleNotificationRowClick">
                       <el-table-column width="16" align="center">
                         <template slot-scope="scope">
                           <div class="circle" v-if="scope.row.unread"></div>
                         </template>
                       </el-table-column>
-                      <el-table-column
-                        prop="title"
-                        min-width="500"
-                        align="left"
-                      >
+                      <el-table-column prop="title" min-width="500" align="left">
                       </el-table-column>
-                      <el-table-column
-                        prop="createTime"
-                        width="200"
-                        fixed="right"
-                      >
+                      <el-table-column prop="createTime" width="200" fixed="right">
                       </el-table-column>
                     </el-table>
                   </template>
@@ -126,33 +94,22 @@
             <el-row style="margin-top: 2em">
               <el-col class="notificationAndStat">
                 <el-row style="margin-top: 10px">
-                  <el-col
-                    :span="12"
-                    style="font-weight: bolder; text-align: left"
-                    >&nbsp&nbsp待办事项</el-col
-                  >
+                  <el-col :span="12" style="font-weight: bolder; text-align: left">
+                    &nbsp&nbsp待办事项
+                  </el-col>
                   <el-col :span="12" style="text-align: right">
-                    <el-button
-                      icon="el-icon-more"
-                      style="
+                    <el-button icon="el-icon-more" style="
                         margin-right: 10px;
                         height: 1.5em;
                         padding-top: 2px;
-                      "
-                      @click="moreStatList"
-                    >
+                      " @click="moreStatList">
                       更多
                     </el-button>
                   </el-col>
                 </el-row>
                 <el-row>
                   <template>
-                    <el-table
-                      :data="statTableData"
-                      style="width: 98%; margin-left: auto; margin-right: auto"
-                      :show-header="false"
-                      @row-click="handleStatListRowClick"
-                    >
+                    <el-table :data="statTableData" style="width: 98%; margin-left: auto; margin-right: auto" :show-header="false" @row-click="handleStatListRowClick">
                       <el-table-column prop="name" min-width="200" align="left">
                       </el-table-column>
                       <el-table-column prop="status" min-width="100">
@@ -169,15 +126,11 @@
           </el-col>
           <el-col :span="5" class="links">
             <el-row style="margin: 10px 0">
-              <el-col :span="12" style="font-weight: bolder; text-align: left"
-                >常用链接</el-col
-              >
+              <el-col :span="12" style="font-weight: bolder; text-align: left">
+                常用链接
+              </el-col>
             </el-row>
-            <div
-              v-for="linkItem in friendlyLinkItems"
-              class="listDirection"
-              style="text-align: left"
-            >
+            <div v-for="linkItem in friendlyLinkItems" class="listDirection" style="text-align: left">
               <a :href="linkItem.link" target="_blank">{{ linkItem.title }}</a>
             </div>
 
@@ -192,13 +145,7 @@
       </el-row>
     </div>
 
-    <div
-      class="work"
-      v-if="
-        (monitor && this.$store.state.monitorBrowsingStatus === 'monitor') ||
-        instructor
-      "
-    >
+    <div class="work" v-if="(monitor && this.$store.state.monitorBrowsingStatus === 'monitor') ||instructor">
       <h2>{{ indexTitle }}</h2>
       <time-line v-for="item in works" :workItem="item" :key="item.id">
         <template slot-scope="{ item }">
@@ -207,41 +154,24 @@
       </time-line>
     </div>
 
-    <el-dialog
-      :visible.sync="showNotificationDialog"
-      title="通知详情"
-      width="80%"
-      :before-close="handleBeforeClose"
-    >
+    <el-dialog :visible.sync="showNotificationDialog" title="通知详情" width="80%" :before-close="handleBeforeClose">
       <h2 class="notification">{{ notificationTitle }}</h2>
       <p class="notification">建立时间：{{ notificationCreateTime }}</p>
       <br />
       <div v-html="notificationHTML" class="notificationHtml"></div>
     </el-dialog>
 
-    <el-dialog
-      :visible.sync="showTodoListDialog"
-      title="待办事项详情"
-      :v-loading="whileLoading"
-      width="80%"
-    >
-      <dynamic-form
-        :disabled="disabledData"
-        ref="countForm"
-        v-model="countData"
-      ></dynamic-form>
+    <el-dialog :visible.sync="showTodoListDialog" title="待办事项详情" :v-loading="whileLoading" width="80%">
+      <dynamic-form :disabled="disabledData" ref="countForm" v-model="countData"></dynamic-form>
       <el-row type="flex">
         <el-col :span="6" :offset="18">
           <el-button @click="showTodoListDialog = false">取消</el-button>
-          <el-button
-            v-if="!disabledData"
-            type="primary"
-            @click="submitCountData('countForm')"
-            >确认</el-button
-          >
-          <el-button v-if="disabledData" type="primary" @click="canEdite"
-            >修改</el-button
-          >
+          <el-button v-if="!disabledData" type="primary" @click="submitCountData('countForm')">
+            确认
+          </el-button>
+          <el-button v-if="disabledData" type="primary" @click="canEdite">
+            修改
+          </el-button>
         </el-col>
       </el-row>
     </el-dialog>
