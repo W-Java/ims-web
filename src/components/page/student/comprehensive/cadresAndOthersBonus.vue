@@ -124,6 +124,7 @@
 </template>
 
 <script>
+
   export default {
     name:"cadresAndOthersBonus",
     data(){
