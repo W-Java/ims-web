@@ -1,4 +1,5 @@
 <template>
+<!--  实现轮播效果  -->
   <el-carousel :interval="4000" type="card" height="240px">
     <el-carousel-item
       v-for="(carouselItem, index) in carouselItems.length"

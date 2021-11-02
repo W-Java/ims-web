@@ -7,6 +7,7 @@
     <el-row :gutter="40" style="text-align: center">
       <!--<el-col :span="2" class="leftSpace">&nbsp</el-col>-->
       <el-col class="middleSpace">
+        <!--        个人名片        -->
         <BusinessCard
           :photo="studentInfo.photo"
           :name="studentInfo.name"
@@ -25,7 +26,7 @@
             />
           </el-row>
 
-          <!--               统计事件预览框                  -->
+          <!--               代办事项预览框                  -->
           <el-row style="margin-top: 2em">
             <Todos
               :statTableData="statTableData"
