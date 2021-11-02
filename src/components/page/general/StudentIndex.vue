@@ -83,6 +83,7 @@ import BusinessCard from "./elements/BusinessCard";
 import Notification from "./elements/Notification.vue";
 import Links from "./elements/Links.vue";
 import Todos from "./elements/Todos.vue";
+
 export default {
   components: {
     BusinessCard,
@@ -233,7 +234,7 @@ export default {
       }
       this.showTodoListDialog = true;
       this.statsID = row.id;
-      this.whileLoading = true; 
+      this.whileLoading = true;
       const statsRes = await getStats(row.id);
       this.countData = statsRes.data;
       this.countData.statsData = JSON.parse(this.countData.statsData);
