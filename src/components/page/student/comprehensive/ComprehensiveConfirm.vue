@@ -125,6 +125,7 @@
 </template>
 
 <script>
+
 export default {
   name:'comprehensiveconfirm',
   data(){
