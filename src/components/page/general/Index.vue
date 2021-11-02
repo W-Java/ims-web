@@ -4,6 +4,7 @@
     <div
       v-if="student && this.$store.state.monitorBrowsingStatus === 'student'"
     >
+<!--      学生      -->
       <StudentIndex/>
     </div>
 
@@ -12,6 +13,7 @@
       v-if="
         (monitor && this.$store.state.monitorBrowsingStatus === 'monitor') || instructor
       ">
+<!--      班长      -->
       <InstructorIndex/>
     </div>
   </div>
