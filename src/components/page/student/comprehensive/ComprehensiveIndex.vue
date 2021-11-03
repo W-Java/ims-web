@@ -1,4 +1,5 @@
 <template>
+  <!--  待重构  -->
   <div>
     <div align="center">
     <h3>{{grade}}级综合测评实施办法</h3>

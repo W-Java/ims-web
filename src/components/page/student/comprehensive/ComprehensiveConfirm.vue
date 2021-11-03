@@ -1,4 +1,5 @@
 <template>
+  <!--  待重构  -->
   <div>
     <p style="color: #ec2a00;" v-if="monitor">
       *提示：请确保本班所有同学在公示确认阶段完成对自己综测结果的确认。
