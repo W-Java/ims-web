@@ -3,6 +3,7 @@
   <div>
     <div>
       <div><h1>学生干部加分</h1></div>
+<!--      学生干部加分      -->
       <el-row>
         <el-table :data="cadresTableData">
           <el-table-column type="index" label="序号"></el-table-column>
@@ -28,6 +29,7 @@
         </div>
       </el-row>
       <div><h1>其它加分</h1></div>
+<!--      其他加分      -->
       <el-row>
         <el-table :data="othersTableData">
           <el-table-column type="index" label="序号"></el-table-column>
@@ -53,6 +55,8 @@
         </div>
       </el-row>
     </div>
+
+
     <!--Dialog  Form-->
     <div>
       <el-dialog title="学生干部加分"
