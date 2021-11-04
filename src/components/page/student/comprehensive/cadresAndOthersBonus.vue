@@ -161,6 +161,7 @@
         },
       }
     },
+
     created(){
       window.vueer = this;
       this.currentAcademicYear = this.$route.query.term;
