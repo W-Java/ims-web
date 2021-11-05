@@ -1,5 +1,5 @@
 <template>
-  <!--  待重构  -->
+  <!--  综测情况汇总  -->
   <div>
     <p style="color: #c0c4cc;">*提示：智育分数将由辅导员统一导入，德育分数、减分分数将由班长统一填写。学生只需点击“突出贡献加分”“先进典型加分”“学生干部及其他加分”按钮进行加分项的填写。</p><br>
     <div align="center">
@@ -15,7 +15,7 @@
         <el-col :span="20">{{basicInfo.currentCredit}}</el-col>
       </el-row>
       <el-row class="basicExih">
-      <el-col :span="4"><b>挂科数</b></el-col>
+        <el-col :span="4"><b>挂科数</b></el-col>
         <el-col :span="20">{{basicInfo.failedNumber}}</el-col>
       </el-row>
       <el-row class="basicExih">

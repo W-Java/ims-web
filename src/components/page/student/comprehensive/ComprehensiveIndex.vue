@@ -1,11 +1,12 @@
 <template>
-  <!--  待重构  -->
+<!--  综测首页  -->
   <div>
     <div align="center">
     <h3>{{grade}}级综合测评实施办法</h3>
     </div>
     <div>
       <div>
+<!--        详细的积分规则       -->
         <el-collapse>
           <el-collapse-item title="一、计分方法">
             <p>综合素质测评分 ＝ 德育素质分 × 20% ＋ 智育素质分（含体育课程成绩）× 80％ ＋ 综合素质加分</p>
