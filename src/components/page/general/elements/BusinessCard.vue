@@ -9,18 +9,22 @@
         title="照片"
       />
     </el-row>
+<!--    姓名栏     -->
     <el-row :gutter="20" class="businessCard_name">
       <el-col :span="12" style="text-align: right">姓名</el-col>
       <el-col :span="12" style="text-align: left">{{ name }}</el-col>
     </el-row>
+<!--    性别栏     -->
     <el-row :gutter="20" class="businessCard_sex">
       <el-col :span="12" style="text-align: right">性别</el-col>
       <el-col :span="12" style="text-align: left">{{ sex }}</el-col>
     </el-row>
+<!--    专业班级栏     -->
     <el-row :gutter="20" class="businessCard_majorAndClass">
       <el-col :span="12" style="text-align: right">专业班级</el-col>
       <el-col :span="12" style="text-align: left">{{ majorAndClass }}</el-col>
     </el-row>
+<!--    学号栏     -->
     <el-row
       :gutter="20"
       class="businessCard_IDNumber"
