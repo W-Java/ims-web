@@ -1,13 +1,14 @@
 <template>
   <div>
     <el-row>
+    <!--      添加图片滚动效果      -->
       <Carousel :carouselItems="carouselItems" />
     </el-row>
 
     <el-row :gutter="40" style="text-align: center">
       <!--<el-col :span="2" class="leftSpace">&nbsp</el-col>-->
       <el-col class="middleSpace">
-        <!--        个人名片        -->
+        <!--        个人名片BusinessCard.vue        -->
         <BusinessCard
           :photo="studentInfo.photo"
           :name="studentInfo.name"
@@ -17,7 +18,7 @@
           @info="handleInfoManagement"
         />
         <el-col :span="14" class="middle_container">
-          <!--               通知预览框                  -->
+        <!--        通知预览框Notification.vue           -->
           <el-row>
             <Notification
               :notificationTableData="notificationTableData"
@@ -25,7 +26,7 @@
               @moreNotifications="moreNotifications"
             />
           </el-row>
-          <!--               代办事项预览框                  -->
+        <!--        代办事项预览框Todos.vue           -->
           <el-row style="margin-top: 2em">
             <Todos
               :statTableData="statTableData"
@@ -37,6 +38,8 @@
         <Links :friendlyLinkItems="friendlyLinkItems" />
       </el-col>
     </el-row>
+
+<!--    待办事项详情    -->
     <el-dialog
       :visible.sync="showTodoListDialog"
       title="待办事项详情"
@@ -63,13 +66,17 @@
         </el-col>
       </el-row>
     </el-dialog>
+
+<!--    通知详情   （点开某条具体的显示的一个通知栏） -->
     <el-dialog
       :visible.sync="showNotificationDialog"
       title="通知详情"
       width="80%"
       :before-close="handleBeforeClose"
     >
+<!--      通知的名称       -->
       <h2 class="notification">{{ notificationData.title }}</h2>
+<!--      通知的建立时间       -->
       <p class="notification">建立时间：{{ notificationData.createTime }}</p>
       <br />
       <div v-html="notificationData.html" class="notificationHtml"></div>
@@ -100,7 +107,6 @@ export default {
     //control status
       showNotificationDialog: false,
       showTodoListDialog: false,
-      showTodoListDialog: false,
       whileLoading: false,
       disabledData: false,
       notificationData: {
@@ -116,6 +122,7 @@ export default {
       carouselItems: [],
       studentInfo: {
         //test example, remember to remove it
+        // 用户头像
         photo: 'https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/cc11728b4710b9122e5c210ec3fdfc03934522a5.jpg',
         name: "",
         sex: "",
