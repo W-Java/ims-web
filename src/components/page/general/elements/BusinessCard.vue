@@ -54,6 +54,7 @@ export default {
   emits: ["info"],
 };
 </script>
+
 <style lang="scss" scoped>
 .businessCard {
   /*border-color: #c7c7c7;*/
@@ -73,4 +74,5 @@ export default {
   -moz-box-shadow: 0 0 2em rgba(255, 116, 155, 0.19);
   box-shadow: 0 0 2em rgba(255, 116, 155, 0.19);
 }
+
 </style>
