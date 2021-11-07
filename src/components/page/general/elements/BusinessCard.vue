@@ -1,6 +1,7 @@
+<!--个人信息-->
 <template>
-<!--  个人名片  -->
   <el-col :span="5" class="businessCard">
+<!--    个人照片    -->
     <el-row>
       <img
         :src="photo"
@@ -33,6 +34,7 @@
       <el-col :span="12" style="text-align: right">学号</el-col>
       <el-col :span="12" style="text-align: left">{{ IDNumber }}</el-col>
     </el-row>
+<!--    详细信息的按钮     -->
     <el-row style="margin-top: 60px">
       <el-button
         style="width: 80%; max-width: 280px"
