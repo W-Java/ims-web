@@ -1,12 +1,13 @@
 <template>
-  <!--  待重构  -->
   <div>
+<!--    班长显示两个 学生显示一个     -->
     <p style="color: #ec2a00;" v-if="monitor">
       *提示：请确保本班所有同学在公示确认阶段完成对自己综测结果的确认。
     </p><br>
     <p style="color: #c0c4cc;">
       *提示：请在公示阶段完成前点击“确认综测结果”按钮完成对自己综测结果的确认。
     </p><br>
+<!--    XXXX年综合测评表     -->
     <h1 align="center">{{currentAcademicYear}}年综合测评</h1>
     <div>
       <el-row class="basicExih">
@@ -58,6 +59,7 @@
         <el-col :span="4">{{basicInfo.compresRank}}</el-col>
       </el-row>
     </div>
+
     <div style="text-align: right" v-if="checked">
       <el-button type="primary" @click.native="check">公示确认</el-button>
     </div>
