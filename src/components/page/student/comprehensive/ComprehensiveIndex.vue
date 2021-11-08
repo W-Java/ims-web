@@ -1,5 +1,5 @@
 <template>
-<!--  综测首页  -->
+<!--    综测首页   -->
   <div>
 <!--    title     -->
     <div align="center">
@@ -56,7 +56,7 @@
           </el-collapse-item>
         </el-collapse>
       </div>
-<!--底部图片-->
+<!--  底部卡片  -->
       <div>
         <el-row :gutter="200" class="card">
           <el-col :span="8" v-for="(card,index) in semesterCards" :key="index">
@@ -65,7 +65,7 @@
               <div class="top" style="padding: 5%; background-color: rgba(255,255,255,0.47)">
                 <p style="text-align: left; ">综合测评</p>
               </div>
-<!--              年份button            -->
+<!--              年份标签            -->
               <div class="cardCenter">
                 <div style="text-align: left; padding-left: 7%">
                   <p>{{card.semester.substring(0,4)}}</p>
