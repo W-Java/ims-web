@@ -50,7 +50,7 @@
         :disabled="disabledData"
         ref="countForm"
         v-model="countData"
-      ></dynamic-form>
+      />
       <el-row type="flex">
         <el-col :span="6" :offset="18">
           <el-button @click="showTodoListDialog = false">取消</el-button>
