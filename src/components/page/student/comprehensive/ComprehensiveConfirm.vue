@@ -59,12 +59,12 @@
         <el-col :span="4">{{basicInfo.compresRank}}</el-col>
       </el-row>
     </div>
-
+<!--    公式确认的按钮     -->
     <div style="text-align: right" v-if="checked">
       <el-button type="primary" @click.native="check">公示确认</el-button>
     </div>
+<!--    综测公示的表格   -->
     <!--控制结束后学生页面不再展示别人的公示-->
-    <!--v-if="showTable"-->
     <div v-if="showTable">
       <div style="padding-top: 2%">
         <el-table id="table"

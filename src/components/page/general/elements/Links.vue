@@ -19,7 +19,7 @@
 <script>
 export default {
     props:['friendlyLinkItems']
-};
+}
 </script>
 <style lang="scss">
 .links {

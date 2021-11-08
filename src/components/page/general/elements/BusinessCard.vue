@@ -52,7 +52,7 @@
 export default {
   props: ['photo','name','sex','majorAndClass','IDNumber'],
   emits: ["info"],
-};
+}
 </script>
 
 <style lang="scss" scoped>
