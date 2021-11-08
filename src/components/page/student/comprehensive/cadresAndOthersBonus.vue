@@ -54,9 +54,7 @@
         </div>
       </el-row>
     </div>
-
-
-    <!--Dialog  Form-->
+<!--Dialog  Form-->
     <div>
       <el-dialog title="学生干部加分"
                  :visible.sync = "cadresDialogVisible"
