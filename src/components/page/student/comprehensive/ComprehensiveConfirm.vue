@@ -9,7 +9,7 @@
     </p><br>
 <!--    标题    -->
     <h1 align="center">{{currentAcademicYear}}年综合测评</h1>
-<!--    XXXX年综合测评表     -->
+<!--    综合测评表     -->
     <ComprehensiveForm
       :grade = 'basicInfo.grade'
       :current-credit = 'basicInfo.currentCredit'
@@ -21,7 +21,15 @@
     />
 <!--    最终信息表   -->
     <FinalInformation
-      :
+      :checked = 'checked'
+      :show-table = 'showTable'
+      :students-data = 'studentsData'
+      :loading = 'loading'
+      :current-page = 'currentPage'
+      :page-size = 'pageSize'
+      :record-quantity = 'recordQuantity'
+      @handleSizeChange = 'handleSizeChange'
+      @handleCurrentChange = 'handleCurrentChange'
     />
   </div>
 </template>
