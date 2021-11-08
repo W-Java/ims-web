@@ -10,44 +10,11 @@
       />
       <div><h1>其它加分</h1></div>
 <!--      其他加分      -->
-      <el-row>
-        <el-table :data="othersTableData">
-          <el-table-column type="index" label="序号"></el-table-column>
-          <el-table-column label="加分项目" prop="itemName"></el-table-column>
-          <el-table-column label="分值" prop="score"></el-table-column>
-          <el-table-column label="上传证明" prop="imgUrl">
-            <template slot-scope="scope">
-              <el-popover placement="right" trigger="hover">
-                <img
-                  :src="scope.row.imgUrl"
-                  alt=""
-                  style="max-width: 600px; max-height: 600px;"
-                >
-                <img
-                  slot="reference"
-                  :src="scope.row.imgUrl"
-                  alt=""
-                  style="width: 50px; height: 50px;"
-                >
-              </el-popover>
-            </template>
-          </el-table-column>
-          <el-table-column label="操作">
-            <template slot-scope="scope">
-              <el-button
-                size="small"
-                type="danger"
-                @click.native="deleteItem(scope,othersTableData)"
-                >删除</el-button
-              >
-              <!--<el-button size="small" type="info" @click.native="modifyOthers(scope)">修改</el-button>-->
-            </template>
-          </el-table-column>
-        </el-table>
-        <div align="right">
-          <el-button  @click="addItem(false)">添加</el-button>
-        </div>
-      </el-row>
+      <other-bonus
+        :others-table-data = 'othersTableData'
+        @addItem = 'addItem'
+        @deleteItem = 'deleteItem'
+      />
     </div>
 <!--Dialog  Form-->
     <div>
@@ -135,9 +102,11 @@
 
 <script>
   import CadresBonus from "./elements/CadresBonus.vue";
+  import OtherBonus from "./elements/OtherBonus.vue";
   export default {
     name:"cadresAndOthersBonus",
     components: {
+      OtherBonus,
       CadresBonus
     },
     data(){

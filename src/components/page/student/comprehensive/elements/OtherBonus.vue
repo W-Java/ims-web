@@ -1,9 +1,9 @@
 <template>
   <el-row>
-    <el-table :data="cadresTableData">
-      <el-table-column type="index" label="序号"/>
-      <el-table-column label="加分项目" prop="itemName"/>
-      <el-table-column label="分值" prop="score"/>
+    <el-table :data="othersTableData">
+      <el-table-column type="index" label="序号"></el-table-column>
+      <el-table-column label="加分项目" prop="itemName"></el-table-column>
+      <el-table-column label="分值" prop="score"></el-table-column>
       <el-table-column label="上传证明" prop="imgUrl">
         <template slot-scope="scope">
           <el-popover placement="right" trigger="hover">
@@ -27,13 +27,13 @@
             size="small"
             type="danger"
             @click.native="
-              (e) => {
+              e => {
                 this.$emit('deleteItem', e)
               }
             "
             >删除</el-button
           >
-          <!--<el-button size="small" type="info" @click.native="modifyCadres(scope)">修改</el-button>-->
+          <!--<el-button size="small" type="info" @click.native="modifyOthers(scope)">修改</el-button>-->
         </template>
       </el-table-column>
     </el-table>
@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  props: ['cadresTableData'],
+  props: ['othersTableData'],
   emits: ['addItem', 'deleteItem']
 }
 </script>
