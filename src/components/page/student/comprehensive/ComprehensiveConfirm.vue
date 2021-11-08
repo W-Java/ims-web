@@ -7,136 +7,35 @@
     <p style="color: #c0c4cc;">
       *提示：请在公示阶段完成前点击“确认综测结果”按钮完成对自己综测结果的确认。
     </p><br>
-<!--    XXXX年综合测评表     -->
+<!--    标题    -->
     <h1 align="center">{{currentAcademicYear}}年综合测评</h1>
-
-
-<!--    ``````````````-->
-    <div>
-      <el-row class="basicExih">
-        <el-col :span="4"><b>加权成绩</b></el-col>
-        <el-col :span="2">&nbsp{{basicInfo.grade}}</el-col>
-        <el-col :span="4"><b>本学年所修学分</b></el-col>
-        <el-col :span="2">{{basicInfo.currentCredit}}</el-col>
-        <el-col :span="4"><b>挂科数</b></el-col>
-        <el-col :span="2">{{basicInfo.failedNumber}}</el-col>
-        <el-col :span="4"><b>德育分</b></el-col>
-        <el-col :span="2">{{basicInfo.moralScore}}</el-col>
-      </el-row>
-      <el-row class="basicExih">
-        <el-col :span="4"><b>综合素质加分合计</b></el-col>
-        <el-col :span="20">{{basicInfo.bonus}}</el-col>
-      </el-row>
-      <el-row class="basicExih">
-        <el-col :span="24"><b>综合加分细则</b></el-col>
-      </el-row>
-      <el-row>
-        <el-table
-          border
-          :span-method="tableSpanMethod"
-          :data="data">
-          <el-table-column
-            label="加分类别"
-            prop="itemType">
-          </el-table-column>
-          <!--<el-table-column-->
-          <!--label="类别总分"-->
-          <!--prop="typeTotal">-->
-          <!--</el-table-column>-->
-          <el-table-column
-            label="加分项名"
-            prop="itemName">
-          </el-table-column>
-          <el-table-column
-            label="分值"
-            prop="score">
-          </el-table-column>
-        </el-table>
-      </el-row>
-      <el-row class="basicExih">
-        <!--<el-col :span="4"><b>加分成绩</b></el-col>-->
-        <!--<el-col :span="4">{{basicInfo.grade}}</el-col>-->
-        <el-col :span="4"><b>最终成绩</b></el-col>
-        <el-col :span="4">{{basicInfo.finalScore}}</el-col>
-        <el-col :span="4"><b>排名</b></el-col>
-        <el-col :span="4">{{basicInfo.compresRank}}</el-col>
-      </el-row>
-    </div>
-<!--    ``````````````-->
-
-
-<!--    公式确认的按钮     -->
-    <div style="text-align: right" v-if="checked">
-      <el-button type="primary" @click.native="check">公示确认</el-button>
-    </div>
-<!--    综测公示的表格   -->
-    <!--控制结束后学生页面不再展示别人的公示-->
-    <div v-if="showTable">
-      <div style="padding-top: 2%">
-        <el-table id="table"
-                  style="width: 100%" stripe
-                  :data="studentsData"
-                  v-loading="loading"
-                  border>
-          <el-table-column type="expand">
-            <template slot-scope="props">
-              <el-table :data="studentsData[props.$index].records" style="width: 100%">
-                <el-table-column label="项目类型" prop="itemType"></el-table-column>
-                <el-table-column label="项目名" prop="itemName"></el-table-column>
-                <el-table-column label="项目等级">
-                  <template slot-scope="scope">
-                    <span v-if="scope.row.itemLevel!==null&&scope.row.itemLevel!=='null'">{{scope.row.itemLevel}}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column label="项目分数" prop="score"></el-table-column>
-                <el-table-column label="凭证">
-                  <template slot-scope="scope">
-                    <span v-if="scope.row.imgUrl===null">暂无证明</span>
-                    <img v-else class="scoreImg" v-bind:src="scope.row.imgUrl"/>
-                  </template>
-                </el-table-column>
-                <el-table-column label="备注" prop="reason"></el-table-column>
-              </el-table>
-            </template>
-          </el-table-column>
-          <el-table-column prop="compreRank" label="综测排名">
-          </el-table-column>
-          <el-table-column prop="majorRank" label="裸分排名">
-          </el-table-column>
-          <el-table-column prop="_class" label="班级">
-          </el-table-column>
-          <el-table-column prop="number" label="学号">
-          </el-table-column>
-          <el-table-column prop="name" label="姓名">
-          </el-table-column>
-          <el-table-column prop="grade" label="裸分">
-          </el-table-column>
-          <el-table-column prop="moral" label="德育分">
-          </el-table-column>
-          <el-table-column prop="addGrade" label="综测加分">
-          </el-table-column>
-          <el-table-column prop="allGrade" label="总分">
-          </el-table-column>
-        </el-table>
-      </div>
-      <div class="block" style="float: right;">
-        <el-pagination @size-change="handleSizeChange"
-                       @current-change="handleCurrentChange"
-                       :current-page="currentPage"
-                       :page-sizes="[20, 30, 40]"
-                       :page-size="pageSize"
-                       layout="total, sizes, prev, pager, next, jumper"
-                       :total="recordQuantity">
-        </el-pagination>
-      </div>
-    </div>
+<!--    XXXX年综合测评表     -->
+    <ComprehensiveForm
+      :grade = 'basicInfo.grade'
+      :current-credit = 'basicInfo.currentCredit'
+      :fail-number = 'basicInfo.failedNumber'
+      :moral-score = 'basicInfo.moralScore'
+      :bonus = 'basicInfo.bonus'
+      :final-score = 'basicInfo.finalScore'
+      :compre-rank = 'basicInfo.compreRank'
+    />
+<!--    最终信息表   -->
+    <FinalInformation
+      :
+    />
   </div>
 </template>
 
 <script>
+import ComprehensiveForm from "./elements/ComprehensiveForm";
+import FinalInformation from "./elements/FinalInformation";
 
 export default {
   name:'comprehensiveconfirm',
+  components: {
+    ComprehensiveForm,
+    FinalInformation
+  },
   data(){
     return {
       currentAcademicYear: '',
