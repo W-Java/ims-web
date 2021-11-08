@@ -5,20 +5,34 @@
 <!--      学生干部加分      -->
       <el-row>
         <el-table :data="cadresTableData">
-          <el-table-column type="index" label="序号"></el-table-column>
-          <el-table-column label="加分项目" prop="itemName"></el-table-column>
-          <el-table-column label="分值" prop="score"></el-table-column>
+          <el-table-column type="index" label="序号"/>
+          <el-table-column label="加分项目" prop="itemName"/>
+          <el-table-column label="分值" prop="score"/>
           <el-table-column label="上传证明" prop="imgUrl">
             <template slot-scope="scope">
               <el-popover placement="right" trigger="hover">
-                <img :src="scope.row.imgUrl" alt="" style="max-width: 600px; max-height: 600px;">
-                <img slot="reference" :src="scope.row.imgUrl" alt="" style="width: 50px; height: 50px;">
+                <img
+                  :src="scope.row.imgUrl"
+                  alt=""
+                  style="max-width: 600px; max-height: 600px;"
+                >
+                <img
+                  slot="reference"
+                  :src="scope.row.imgUrl"
+                  alt=""
+                  style="width: 50px; height: 50px;"
+                >
               </el-popover>
             </template>
           </el-table-column>
           <el-table-column label="操作">
             <template slot-scope="scope">
-              <el-button size="small" type="danger" @click.native="deleteItem(scope,cadresTableData)">删除</el-button>
+              <el-button
+                size="small"
+                type="danger"
+                @click.native="deleteItem(scope,cadresTableData)"
+                >删除</el-button
+              >
               <!--<el-button size="small" type="info" @click.native="modifyCadres(scope)">修改</el-button>-->
             </template>
           </el-table-column>
@@ -37,14 +51,28 @@
           <el-table-column label="上传证明" prop="imgUrl">
             <template slot-scope="scope">
               <el-popover placement="right" trigger="hover">
-                <img :src="scope.row.imgUrl" alt="" style="max-width: 600px; max-height: 600px;">
-                <img slot="reference" :src="scope.row.imgUrl" alt="" style="width: 50px; height: 50px;">
+                <img
+                  :src="scope.row.imgUrl"
+                  alt=""
+                  style="max-width: 600px; max-height: 600px;"
+                >
+                <img
+                  slot="reference"
+                  :src="scope.row.imgUrl"
+                  alt=""
+                  style="width: 50px; height: 50px;"
+                >
               </el-popover>
             </template>
           </el-table-column>
           <el-table-column label="操作">
             <template slot-scope="scope">
-              <el-button size="small" type="danger" @click.native="deleteItem(scope,othersTableData)">删除</el-button>
+              <el-button
+                size="small"
+                type="danger"
+                @click.native="deleteItem(scope,othersTableData)"
+                >删除</el-button
+              >
               <!--<el-button size="small" type="info" @click.native="modifyOthers(scope)">修改</el-button>-->
             </template>
           </el-table-column>
@@ -56,9 +84,11 @@
     </div>
 <!--Dialog  Form-->
     <div>
-      <el-dialog title="学生干部加分"
-                 :visible.sync = "cadresDialogVisible"
-                 :close-on-click-modal="false">
+      <el-dialog
+        title="学生干部加分"
+        :visible.sync = "cadresDialogVisible"
+        :close-on-click-modal="false"
+      >
         <el-form :model="Form" ref="cadresForm" :rules="formRules">
           <el-form-item label="加分项目" prop="itemName">
             <el-input v-model="Form.itemName"></el-input>
@@ -73,16 +103,27 @@
               action="123"
               :auto-upload="false"
               :file-list="fileList"
-              accept=".jpg,.png">
+              accept=".jpg,.png"
+            >
               <el-button size="small" type="primary">选择文件</el-button>
               <div slot="tip" class="el-upload-tip">只能上传jpg/png文件,不能超过1MB</div>
             </el-upload>
-            <el-progress v-show="showProgress" :text-inside="true" :stroke-width="18"
-                         :percentage="uploadPercent"></el-progress>
+            <el-progress
+              v-show="showProgress"
+              :text-inside="true"
+              :stroke-width="18"
+              :percentage="uploadPercent"
+            />
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
-          <el-button @click="cadresSure" type="primary" v-loading="buttonDisable" :disabled="buttonDisable">确定</el-button>
+          <el-button
+            @click="cadresSure"
+            type="primary"
+            v-loading="buttonDisable"
+            :disabled="buttonDisable"
+            >确定</el-button
+          >
           <el-button @click="cadresCancel">取消</el-button>
         </div>
       </el-dialog>
