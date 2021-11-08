@@ -1,22 +1,28 @@
 <template>
 <!--  综测首页  -->
   <div>
+<!--    title     -->
     <div align="center">
     <h3>{{grade}}级综合测评实施办法</h3>
     </div>
+<!--    content     -->
     <div>
+<!--  积分规则  -->
       <div>
-<!--        详细的积分规则       -->
         <el-collapse>
+<!--          row1          -->
           <el-collapse-item title="一、计分方法">
             <p>综合素质测评分 ＝ 德育素质分 × 20% ＋ 智育素质分（含体育课程成绩）× 80％ ＋ 综合素质加分</p>
           </el-collapse-item>
+<!--          row2          -->
           <el-collapse-item title="二、智育素质测评">
             <p>智育素质分（含体育课程成绩）由本科生院教务管理系统自动生成</p>
           </el-collapse-item>
+<!--          row3          -->
           <el-collapse-item title="三、德育素质测评">
             <p>本分分数由班级评议小组内部自行评定</p>
           </el-collapse-item>
+<!--          row4          -->
           <el-collapse-item title="四、综合素质加分（上限为3分）">
             <el-collapse>
               <el-collapse-item title="1.突出贡献加分">
@@ -50,14 +56,16 @@
           </el-collapse-item>
         </el-collapse>
       </div>
-
+<!--底部图片-->
       <div>
         <el-row :gutter="200" class="card">
           <el-col :span="8" v-for="(card,index) in semesterCards" :key="index">
             <el-card :body-style="{padding: '0px'}" shadow="hover" style="cursor: pointer;margin: 5%;" @click.native="checkSemester($event,index)">
+<!--              综合测评文字              -->
               <div class="top" style="padding: 5%; background-color: rgba(255,255,255,0.47)">
                 <p style="text-align: left; ">综合测评</p>
               </div>
+<!--              年份button            -->
               <div class="cardCenter">
                 <div style="text-align: left; padding-left: 7%">
                   <p>{{card.semester.substring(0,4)}}</p>
@@ -70,12 +78,14 @@
                   <p>{{card.semester.substring(5,9)}}</p>
                 </div>
               </div>
+<!--              已结束、查看详情               -->
               <div class="bottom" style="padding: 3%">
                 <el-row>
                   <el-col :span="12" id="status"><p>{{card.status}}</p></el-col>
                   <el-col :span="12" id="operation"><p>{{card.operator}}</p></el-col>
                 </el-row>
               </div>
+<!--              状态持续到               -->
               <div  v-if="index === semesterCards.length - 1" style="color: #ff4034">
                 <el-row>状态持续到</el-row>
                 <el-row>{{endTime}}</el-row>
@@ -87,7 +97,6 @@
     </div>
 
   </div>
-
 </template>
 
 <script>
@@ -177,8 +186,6 @@
       }
     }
   }
-
-
 </script>
 
 <style lang="scss" scoped>
