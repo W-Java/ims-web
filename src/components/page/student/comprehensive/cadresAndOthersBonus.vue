@@ -1,6 +1,4 @@
 <template>
-
-<!--  重构  -->
   <div>
     <div>
       <div><h1>学生干部加分</h1></div>
