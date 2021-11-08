@@ -16,86 +16,38 @@
         @deleteItem = 'deleteItem'
       />
     </div>
-<!--Dialog  Form-->
-    <div>
-      <el-dialog
-        title="学生干部加分"
-        :visible.sync = "cadresDialogVisible"
-        :close-on-click-modal="false"
-      >
-        <el-form :model="Form" ref="cadresForm" :rules="formRules">
-          <el-form-item label="加分项目" prop="itemName">
-            <el-input v-model="Form.itemName"></el-input>
-          </el-form-item>
-          <el-form-item label="分值"  prop="score">
-            <el-input v-model.number="Form.score"></el-input>
-          </el-form-item>
-          <el-form-item label="上传证明" prop="imgUrl">
-            <el-upload
-              :on-change="handleFileSelection"
-              list-type="picture"
-              action="123"
-              :auto-upload="false"
-              :file-list="fileList"
-              accept=".jpg,.png"
-            >
-              <el-button size="small" type="primary">选择文件</el-button>
-              <div slot="tip" class="el-upload-tip">只能上传jpg/png文件,不能超过1MB</div>
-            </el-upload>
-            <el-progress
-              v-show="showProgress"
-              :text-inside="true"
-              :stroke-width="18"
-              :percentage="uploadPercent"
-            />
-          </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-          <el-button
-            @click="cadresSure"
-            type="primary"
-            v-loading="buttonDisable"
-            :disabled="buttonDisable"
-            >确定</el-button
-          >
-          <el-button @click="cadresCancel">取消</el-button>
-        </div>
-      </el-dialog>
-    </div>
-    <div>
-      <el-dialog title="其他加分"
-                 :visible.sync = "othersDialogVisible"
-                 :close-on-click-modal="false">
-        <el-form ref="othersForm" :model="Form" :rules="formRules">
-          <el-form-item label="加分项目" prop="itemName">
-            <el-input v-model="Form.itemName"></el-input>
-          </el-form-item>
-          <el-form-item label="分值" prop="score">
-            <el-input v-model.number="Form.score" ></el-input>
-          </el-form-item>
-          <el-form-item label="上传证明" prop="imgUrl">
-            <el-upload
-              :on-change="handleFileSelection"
-              list-type="picture"
-              action="123"
-              :auto-upload="false"
-              :file-list="fileList"
-              accept=".jpg,.png">
-              <el-button size="small" type="primary">选择文件</el-button>
-              <div slot="tip" class="el-upload-tip">只能上传jpg/png文件,不能超过1MB</div>
-            </el-upload>
-            <el-progress v-show="showProgress" :text-inside="true" :stroke-width="18"
-                         :percentage="uploadPercent"></el-progress>
-          </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-          <el-button @click="othersSure" type="primary" v-loading="buttonDisable" :disabled="buttonDisable">确定</el-button>
-          <el-button @click="otherCancel">取消</el-button>
-        </div>
-      </el-dialog>
-    </div>
+<!--    学生干部加分表单    -->
+    <cadres-form
+      :cadres-dialog-visible = 'cadresDialogVisible'
+      :form = 'Form'
+      :form-rules = 'formRules'
+      :file-list = 'fileList'
+      :show-progress = 'showProgress'
+      :upload-percent = 'uploadPercent'
+      :button-disable = 'buttonDisable'
+      @handleFileSelection = 'handleFileSelection'
+      @cadresSure = 'cadresSure'
+      @cadresCancel = 'cadresCancel'
+    />
+<!--    其他加分表单    -->
+    <other-form
+      :others-dialog-visible = 'othersDialogVisible'
+      :form = 'Form'
+      :form-rules = 'formRules'
+      :file-list = 'fileList'
+      :show-progress = 'showProgress'
+      :upload-percent = 'uploadPercent'
+      :button-disable = 'buttonDisable'
+      @handleFileSelection = 'handleFileSelection'
+      @othersSure = 'othersSure'
+      @otherCancel = 'otherCancel'
+    />
     <el-row style="text-align: center; padding-top: 10%;">
-      <el-button type="primary" @click="back">返回</el-button>
+      <el-button
+        type="primary"
+        @click="back"
+        >返回</el-button
+      >
     </el-row>
   </div>
 </template>
@@ -103,9 +55,13 @@
 <script>
   import CadresBonus from "./elements/CadresBonus.vue";
   import OtherBonus from "./elements/OtherBonus.vue";
+  import CadresForm from "./elements/CadresForm.vue";
+  import OtherForm from "./elements/OtherForm.vue";
   export default {
     name:"cadresAndOthersBonus",
     components: {
+      OtherForm,
+      CadresForm,
       OtherBonus,
       CadresBonus
     },
