@@ -42,6 +42,7 @@
       @othersSure = 'othersSure'
       @otherCancel = 'otherCancel'
     />
+<!--    返回按钮    -->
     <el-row style="text-align: center; padding-top: 10%;">
       <el-button
         type="primary"
@@ -98,7 +99,6 @@
         },
       }
     },
-
     created(){
       window.vueer = this;
       this.currentAcademicYear = this.$route.query.term;
