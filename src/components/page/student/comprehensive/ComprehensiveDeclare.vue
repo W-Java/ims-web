@@ -66,7 +66,7 @@
         <el-button type="primary" @click="editRecords">加分项管理</el-button>
       </el-row>
     </div>
-
+<!--    弹出加分项详情    -->
     <el-dialog
       title="加分项管理"
       :visible.sync="editAdd"
@@ -108,7 +108,6 @@
         </el-table-column>
       </el-table>
     </el-dialog>
-
   </div>
 </template>
 
