@@ -1,5 +1,4 @@
 <template>
-  <!--  待重构  -->
   <div>
 <!--    title     -->
     <h1 align="center">{{currentAcademicYear}}年综合测评</h1>
