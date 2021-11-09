@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import ComprehensiveForm from "./elements/ComprehensiveForm";
-import FinalInformation from "./elements/FinalInformation";
+import ComprehensiveForm from "./elements/ComprehensiveConfirm/ComprehensiveForm";
+import FinalInformation from "./elements/ComprehensiveConfirm/FinalInformation";
 
 export default {
   name:'comprehensiveconfirm',

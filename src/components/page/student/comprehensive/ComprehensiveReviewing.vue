@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import TotalReviewing from "./elements/TotalReviewing";
+import TotalReviewing from "./elements/TotalReviewing.vue";
 export default {
   name:"comprehensivereviewing",
   components: {TotalReviewing},
@@ -132,7 +132,5 @@ export default {
 </script>
 
 <style>
-  .basicExih{
-    padding: 1%;
-  }
+
 </style>

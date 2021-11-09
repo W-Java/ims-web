@@ -77,5 +77,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .basicExih{
+    padding: 1%;
+  }
 </style>

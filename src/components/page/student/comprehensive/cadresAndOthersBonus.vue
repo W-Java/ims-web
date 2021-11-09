@@ -54,10 +54,10 @@
 </template>
 
 <script>
-  import CadresBonus from "./elements/CadresBonus.vue";
-  import OtherBonus from "./elements/OtherBonus.vue";
-  import CadresForm from "./elements/CadresForm.vue";
-  import OtherForm from "./elements/OtherForm.vue";
+  import CadresBonus from "./elements/cadresAndOthersBonus/CadresBonus.vue";
+  import OtherBonus from "./elements/cadresAndOthersBonus/OtherBonus.vue";
+  import CadresForm from "./elements/cadresAndOthersBonus/CadresForm.vue";
+  import OtherForm from "./elements/cadresAndOthersBonus/OtherForm.vue";
   export default {
     name:"cadresAndOthersBonus",
     components: {
