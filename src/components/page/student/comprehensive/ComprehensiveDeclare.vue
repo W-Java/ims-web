@@ -5,6 +5,7 @@
     <div align="center">
       <h1>{{currentAcademicYear}}年综合测评</h1>
     </div>
+<!--    主界面   -->
     <div>
       <el-row class="basicExih">
         <el-col :span="4"><b>加权成绩</b></el-col>
@@ -58,6 +59,7 @@
         </el-col>
       </el-row>
     </div>
+<!--    两个按钮    -->
     <div>
       <el-row style="text-align: center; padding-top: 10%;">
         <el-button type="primary" @click="back">返回</el-button>
