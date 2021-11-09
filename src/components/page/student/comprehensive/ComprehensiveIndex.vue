@@ -14,7 +14,6 @@
         @checkSemester = 'checkSemester'
       />
     </div>
-
   </div>
 </template>
 
@@ -96,12 +95,12 @@
     },
 
     methods: {
-      checkSemester(event, index) {
+      async checkSemester(event, index) {
         let cardWords = event.currentTarget.textContent.toString().split(' ');
         let pushRouter = {name: '', query: ''};
         pushRouter.name = this.funcMapWords[cardWords[4]];
         pushRouter.query = {term: this.semesterCards[index].semester};
-        this.$router.push(pushRouter);
+        await this.$router.push(pushRouter);
       },
       check(){
         console.log(window.frames[0].element)
