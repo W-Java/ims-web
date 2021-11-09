@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <el-row type="flex" justify="space-between">
       <el-col :span="24">
         <!---- 综合测评卡片 ---->
