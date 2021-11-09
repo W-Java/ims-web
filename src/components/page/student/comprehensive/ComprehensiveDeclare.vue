@@ -6,59 +6,14 @@
       <h1>{{currentAcademicYear}}年综合测评</h1>
     </div>
 <!--    主界面   -->
-    <div>
-      <el-row class="basicExih">
-        <el-col :span="4"><b>加权成绩</b></el-col>
-        <el-col :span="20">{{basicInfo.grade}}</el-col>
-      </el-row>
-      <el-row class="basicExih">
-        <el-col :span="4"><b>本学年所修学分</b></el-col>
-        <el-col :span="20">{{basicInfo.currentCredit}}</el-col>
-      </el-row>
-      <el-row class="basicExih">
-        <el-col :span="4"><b>挂科数</b></el-col>
-        <el-col :span="20">{{basicInfo.failedNumber}}</el-col>
-      </el-row>
-      <el-row class="basicExih">
-        <el-col :span="4"><b>德育分</b></el-col>
-        <el-col :span="20">{{basicInfo.moralScore}}</el-col>
-      </el-row>
-      <el-row class="basicExih">
-        <el-col :span="24"><b>综合素质加分申报</b></el-col>
-      </el-row>
-      <el-row style="padding: 1%; text-align: center" :gutter="300">
-        <el-col :span="8">
-          <el-card class="box-card" shadow="hover" @click.native="pageToGrowing" style="cursor:pointer;">
-            <div slot="header">
-              <span>突出贡献加分</span>
-            </div>
-            <div >
-              <p>将转到“成长档案”中填写</p>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="8">
-          <el-card class="box-card" shadow="hover" @click.native="pageToGrowing" style="cursor:pointer;">
-            <div slot="header">
-              <span>先进典型加分</span>
-            </div>
-            <div >
-              <p>将转到“成长档案”中填写</p>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="8">
-          <el-card class="box-card" shadow="hover" @click.native="pageToCAOB"  style="cursor:pointer;">
-            <div slot="header">
-              <span>学生干部及其它加分</span>
-            </div>
-            <div >
-              <p>点击后开始填写</p>
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
-    </div>
+    <comprehensive-detail
+      :grade = 'basicInfo.grade'
+      :current-credit = 'basicInfo.currentCredit'
+      :failed-number = 'basicInfo.failedNumber'
+      :moral-score = 'basicInfo.moralScore'
+      @pageToGrowing = 'pageToGrowing'
+      @pageToCAOB = 'pageToCAOB'
+    />
 <!--    两个按钮    -->
     <div>
       <el-row style="text-align: center; padding-top: 10%;">
@@ -112,10 +67,10 @@
 </template>
 
 <script>
-
-
+  import ComprehensiveDetail from "./elements/ComprehensiveDetail.vue";
   export default {
     name: "ComprehensiveDeclare",
+    components: {ComprehensiveDetail},
     data(){
       return {
         basicInfo:{
@@ -196,7 +151,5 @@
 </script>
 
 <style scoped>
-.basicExih{
-  padding: 1%;
-}
+
 </style>
