@@ -1,6 +1,7 @@
 <template>
   <!--  综测情况汇总  -->
   <div>
+<!--    title     -->
     <p style="color: #c0c4cc;">*提示：智育分数将由辅导员统一导入，德育分数、减分分数将由班长统一填写。学生只需点击“突出贡献加分”“先进典型加分”“学生干部及其他加分”按钮进行加分项的填写。</p><br>
     <div align="center">
       <h1>{{currentAcademicYear}}年综合测评</h1>
@@ -22,55 +23,23 @@
       </el-row>
     </div>
 <!--    弹出加分项详情    -->
-    <el-dialog
-      title="加分项管理"
-      :visible.sync="editAdd"
-      width="80%">
-      <el-table :data="addGroup">
-        <el-table-column prop="itemType" label="加分类别"></el-table-column>
-        <el-table-column prop="itemName" label="加分名称"></el-table-column>
-        <el-table-column label="奖励等级">
-          <template slot-scope="scope">
-            <span v-if="scope.row.itemLevel===null||scope.row.itemLevel==='null'">&nbsp;</span>
-            <span v-else>{{scope.row.itemLevel}}</span>
-          </template>
-        </el-table-column>
-        <el-table-column label="获奖级别">
-          <template slot-scope="scope">
-            <span v-if="scope.row.contestLevel===null||scope.row.contestLevel==='null'">&nbsp;</span>
-            <span v-else>{{scope.row.contestLevel}}</span>
-          </template>
-        </el-table-column>
-        <el-table-column label="比赛类别">
-          <template slot-scope="scope">
-            <span v-if="scope.row.contestKind===null||scope.row.contestKind==='null'">&nbsp;</span>
-            <span v-else>{{scope.row.contestKind}}</span>
-          </template>
-        </el-table-column>
-        <el-table-column prop="score" width="50" label="分值"></el-table-column>
-        <el-table-column width="200" label="证明" prop="imgUrl">
-          <template slot-scope="scope">
-            <el-popover placement="right" trigger="hover">
-              <img :src="scope.row.imgUrl" alt="" style="max-width: 600px; max-height: 600px;">
-              <img slot="reference" :src="scope.row.imgUrl" alt="" style="width: 50px; height: 50px;">
-            </el-popover>
-          </template>
-        </el-table-column>
-        <el-table-column label="操作">
-          <template slot-scope="scope">
-            <el-button @click="deleteOne(scope.row)" type="warning">删除</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-dialog>
+    <bonus-management
+      :edit-add = 'editAdd'
+      :add-group = 'addGroup'
+      @deleteOne = 'deleteOne'
+    />
   </div>
 </template>
 
 <script>
   import ComprehensiveDetail from "./elements/ComprehensiveDetail.vue";
+  import BonusManagement from "./elements/BonusManagement.vue";
   export default {
     name: "ComprehensiveDeclare",
-    components: {ComprehensiveDetail},
+    components: {
+      BonusManagement,
+      ComprehensiveDetail
+    },
     data(){
       return {
         basicInfo:{
@@ -91,7 +60,6 @@
         this.basicInfo = res.data.data;
       });
     },
-
     methods:{
       pageToCAOB(){
         this.$router.push({
