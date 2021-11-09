@@ -27,9 +27,7 @@
             size="small"
             type="danger"
             @click.native="
-              (e1, e2) => {
-                this.$emit('deleteItem', e1, e2)
-              }
+              $emit('deleteItem', scope, data)
             "
             >删除</el-button
           >
