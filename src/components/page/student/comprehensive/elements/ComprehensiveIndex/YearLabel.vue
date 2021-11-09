@@ -6,7 +6,7 @@
           :body-style="{padding: '0px'}"
           shadow="hover"
           style="cursor: pointer;margin: 5%;"
-          @click.native="$emit('checkSemester', e1, e2)"
+          @click.native="(e1, e2) => {this.$emit('checkSemester', e1, e2)}"
         >
           <!--              综合测评文字              -->
           <div class="top" style="padding: 5%; background-color: rgba(255,255,255,0.47)">
