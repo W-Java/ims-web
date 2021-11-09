@@ -19,8 +19,8 @@
 </template>
 
 <script>
-  import IntegralRule from "./elements/IntegralRule.vue";
-  import YearLabel from "./elements/YearLabel.vue";
+  import IntegralRule from "./elements/ComprehensiveIndex/IntegralRule.vue";
+  import YearLabel from "./elements/ComprehensiveIndex/YearLabel.vue";
   export default {
     name: "comprehensiveIndex",
     components: {

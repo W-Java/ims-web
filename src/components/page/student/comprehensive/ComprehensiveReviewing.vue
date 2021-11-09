@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import TotalReviewing from "./elements/TotalReviewing.vue";
+import TotalReviewing from "./elements/ComprehensiveReviewing/TotalReviewing.vue";
 export default {
   name:"comprehensivereviewing",
   components: {TotalReviewing},

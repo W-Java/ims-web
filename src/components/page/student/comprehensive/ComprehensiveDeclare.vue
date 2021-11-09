@@ -32,8 +32,8 @@
 </template>
 
 <script>
-  import ComprehensiveDetail from "./elements/ComprehensiveDetail.vue";
-  import BonusManagement from "./elements/BonusManagement.vue";
+  import ComprehensiveDetail from "./elements/ComprehensiveDeclare/ComprehensiveDetail.vue";
+  import BonusManagement from "./elements/ComprehensiveDeclare/BonusManagement.vue";
   export default {
     name: "ComprehensiveDeclare",
     components: {
