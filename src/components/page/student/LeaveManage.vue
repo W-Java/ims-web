@@ -9,7 +9,6 @@
               <el-input placeholder="请输入联系方式" v-model="leaveData.phone"></el-input>
             </el-col>
           </el-form-item>
-
           <!--<el-form-item>-->
           <!--<el-row :gutter="20">-->
           <!--<el-col :span="10">紧急联系人姓名</el-col>-->
