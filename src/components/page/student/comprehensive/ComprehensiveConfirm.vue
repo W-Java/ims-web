@@ -204,6 +204,7 @@ export default {
     margin-bottom: 0;
     width: 50%;
   }
+
   .scoreImg {
     width: 150px;
     height: 100px;
