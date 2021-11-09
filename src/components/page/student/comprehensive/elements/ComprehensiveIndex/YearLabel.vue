@@ -2,7 +2,12 @@
   <div>
     <el-row :gutter="200" class="card">
       <el-col :span="8" v-for="(card,index) in semesterCards" :key="index">
-        <el-card :body-style="{padding: '0px'}" shadow="hover" style="cursor: pointer;margin: 5%;" @click.native="checkSemester($event,index)">
+        <el-card
+          :body-style="{padding: '0px'}"
+          shadow="hover"
+          style="cursor: pointer;margin: 5%;"
+          @click.native="$emit('checkSemester', e1, e2)"
+        >
           <!--              综合测评文字              -->
           <div class="top" style="padding: 5%; background-color: rgba(255,255,255,0.47)">
             <p style="text-align: left; ">综合测评</p>
