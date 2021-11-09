@@ -3,7 +3,7 @@
     <el-row :gutter="200" class="card">
       <el-col :span="8" v-for="(card,index) in semesterCards" :key="index">
         <div
-          @click="(e1, e2) => {this.$emit('checkSemester', e1, e2)}"
+          @click="$emit('semesterCards', $event, index)"
         >
           <el-card
             :body-style="{padding: '0px'}"
