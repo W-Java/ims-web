@@ -1,6 +1,6 @@
 import { post } from ".";
 /**
- * @param {object} user 
+ * @param {object} user
  * @returns {{ name, sex, _class, number }}
  */
 const getStudentInfo = async (user) => {
@@ -11,8 +11,8 @@ const getStudentInfo = async (user) => {
     }
 }
 /**
- * @param {number} currentPage 
- * @param {number} pageSize 
+ * @param {number} currentPage
+ * @param {number} pageSize
  * @returns {any}
  */
 const getNotice = async (currentPage = 1, pageSize = 4) => {
@@ -20,10 +20,10 @@ const getNotice = async (currentPage = 1, pageSize = 4) => {
     return res.data.data;
 }
 /**
- * @param {number} currentPage 
- * @param {number} pageSize 
- * @param {string} status 
- * @param {string} identity 
+ * @param {number} currentPage
+ * @param {number} pageSize
+ * @param {string} status
+ * @param {string} identity
  * @returns {any}
  */
 const getStatsList = async (currentPage = 1, pageSize = 4, status = 'submit', identity = 'student') => {
@@ -36,7 +36,7 @@ const getStatsList = async (currentPage = 1, pageSize = 4, status = 'submit', id
     }
 }
 /**
- * @param {number} id 
+ * @param {number} id
  * @returns {any}
  */
 const getNotificationById = async (id)=>{
@@ -48,7 +48,7 @@ const getNotificationById = async (id)=>{
     }
 }
 /**
- * @param {number} id 
+ * @param {number} id
  * @returns {any}
  */
 const getStats = async (id)=>{
@@ -60,7 +60,7 @@ const getStats = async (id)=>{
     }
 }
 /**
- * @param {number} id 
+ * @param {number} id
  * @returns {any}
  */
 const getStatsDetail = async (id)=>{
@@ -73,11 +73,11 @@ const getStatsDetail = async (id)=>{
 }
 
 /**
- * 
- * @param {object} header 
- * @param {object} data 
- * @param {number} id 
- * @param {any} status 
+ *
+ * @param {object} header
+ * @param {object} data
+ * @param {number} id
+ * @param {any} status
  * @returns {boolean}
  */
 const fillStats = async (header,data,id,status) => {
@@ -113,13 +113,14 @@ const getInstructorWork = async () => {
   }
 }
 
-export {    getStudentInfo, 
-            getNotice, 
-            getNotificationById, 
-            getStatsList, 
-            getCarousel, 
-            getInstructorWork, 
-            getStats, 
-            getStatsDetail,
-            fillStats
-         }
+export {
+  getStudentInfo,
+  getNotice,
+  getNotificationById,
+  getStatsList,
+  getCarousel,
+  getInstructorWork,
+  getStats,
+  getStatsDetail,
+  fillStats
+}
