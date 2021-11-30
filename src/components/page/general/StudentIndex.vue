@@ -1,8 +1,8 @@
 <template>
   <div>
     <el-row>
-    <!--      添加图片滚动效果      -->
-      <Carousel :carouselItems="carouselItems" />
+      <!--      添加图片滚动效果      -->
+      <Carousel :carouselItems="carouselItems"/>
     </el-row>
 
     <el-row :gutter="40" style="text-align: center">
@@ -18,7 +18,7 @@
           @info="handleInfoManagement"
         />
         <el-col :span="14" class="middle_container">
-        <!--        通知预览框Notification.vue           -->
+          <!--        通知预览框Notification.vue           -->
           <el-row>
             <Notification
               :notificationTableData="notificationTableData"
@@ -26,7 +26,7 @@
               @moreNotifications="moreNotifications"
             />
           </el-row>
-        <!--        代办事项预览框Todos.vue           -->
+          <!--        代办事项预览框Todos.vue           -->
           <el-row style="margin-top: 2em">
             <Todos
               :statTableData="statTableData"
@@ -35,11 +35,11 @@
             />
           </el-row>
         </el-col>
-        <Links :friendlyLinkItems="friendlyLinkItems" />
+        <Links :friendlyLinkItems="friendlyLinkItems"/>
       </el-col>
     </el-row>
 
-<!--    待办事项详情    -->
+    <!--    待办事项详情    -->
     <el-dialog
       :visible.sync="showTodoListDialog"
       title="待办事项详情"
@@ -58,33 +58,44 @@
             v-if="!disabledData"
             type="primary"
             @click="submitCountData('countForm')"
-            >确认</el-button
+          >确认
+          </el-button
           >
           <el-button v-if="disabledData" type="primary" @click="canEdite"
-            >修改</el-button
+          >修改
+          </el-button
           >
         </el-col>
       </el-row>
     </el-dialog>
 
-<!--    通知详情   （点开某条具体的显示的一个通知栏） -->
+    <!--    通知详情   （点开某条具体的显示的一个通知栏） -->
     <el-dialog
       :visible.sync="showNotificationDialog"
       title="通知详情"
       width="80%"
       :before-close="handleBeforeClose"
     >
-<!--      通知的名称       -->
+      <!--      通知的名称       -->
       <h2 class="notification">{{ notificationData.title }}</h2>
-<!--      通知的建立时间       -->
+      <!--      通知的建立时间       -->
       <p class="notification">建立时间：{{ notificationData.createTime }}</p>
-      <br />
+      <br/>
       <div v-html="notificationData.html" class="notificationHtml"></div>
     </el-dialog>
   </div>
 </template>
 <script>
-import { getCarousel, getNotice, getStatsList, getStudentInfo, getNotificationById, getStats, getStatsDetail, fillStats } from '../../../api/general.index';
+import {
+  getCarousel,
+  getNotice,
+  getStatsList,
+  getStudentInfo,
+  getNotificationById,
+  getStats,
+  getStatsDetail,
+  fillStats
+} from '../../../api/general.index';
 import Carousel from "./elements/Carousel.vue";
 import BusinessCard from "./elements/BusinessCard";
 import Notification from "./elements/Notification.vue";
@@ -99,24 +110,24 @@ export default {
     Links,
     Carousel,
   },
-  created(){
-      this.getStudentIndex();
+  created() {
+    this.getStudentIndex();
   },
   data() {
     return {
-    //control status
+      //control status
       showNotificationDialog: false,
       showTodoListDialog: false,
       whileLoading: false,
       disabledData: false,
       notificationData: {
-        html:'',
-        createTime:'',
-        title:''
+        html: '',
+        createTime: '',
+        title: ''
       },
       indexTitle: "",
       fillStatus: "save",
-    //data
+      //data
       countData: {},
       statsID: "",
       carouselItems: [],
@@ -133,19 +144,19 @@ export default {
       statTableData: [],
       //refact it as json file?
       friendlyLinkItems: [
-        { link: "http://bksy.csu.edu.cn/", title: "本科生院" },
-        { link: "http://my.csu.edu.cn", title: "信息门户" },
-        { link: "http://tz.its.csu.edu.cn/", title: "校内通知" },
-        { link: "http://csujwc.its.csu.edu.cn/", title: "本科教务管理系统" },
-        { link: "http://ecard.csu.edu.cn/", title: "校园卡电子服务平台" },
-        { link: "http://jf.csu.edu.cn/xysf/", title: "统一支付平台" },
-        { link: "http://award.csu.edu.cn/", title: " 奖助学金系统" },
+        {link: "http://bksy.csu.edu.cn/", title: "本科生院"},
+        {link: "http://my.csu.edu.cn", title: "信息门户"},
+        {link: "http://tz.its.csu.edu.cn/", title: "校内通知"},
+        {link: "http://csujwc.its.csu.edu.cn/", title: "本科教务管理系统"},
+        {link: "http://ecard.csu.edu.cn/", title: "校园卡电子服务平台"},
+        {link: "http://jf.csu.edu.cn/xysf/", title: "统一支付平台"},
+        {link: "http://award.csu.edu.cn/", title: " 奖助学金系统"},
         {
           link: "http://classroom.csu.edu.cn/",
           title: "学生学习行为信息系统查询平台",
         },
-        { link: "http://ca.its.csu.edu.cn/", title: "统一身份认证平台" },
-        { link: "http://hqlx.csu.edu.cn/", title: "网上报修平台" },
+        {link: "http://ca.its.csu.edu.cn/", title: "统一身份认证平台"},
+        {link: "http://hqlx.csu.edu.cn/", title: "网上报修平台"},
       ],
     };
   },
@@ -179,14 +190,14 @@ export default {
     },
     async getStudentIndex() {
       let user = JSON.parse(sessionStorage.getItem("user"));
-      this.studentInfo = {...this.studentInfo,...await getStudentInfo(user)};
+      this.studentInfo = {...this.studentInfo, ...await getStudentInfo(user)};
       this.notificationTableData = await getNotice();
       const statsListRes = await getStatsList();
       this.generateStatsList(statsListRes.data.countList);
       const carouselRes = await getCarousel();
       this.carouselItems = carouselRes.data.carouselItems;
     },
-    generateStatsList(statTableData){
+    generateStatsList(statTableData) {
       this.statTableData = statTableData //res.data.data.countList;
       for (let i = 0; i < this.statTableData.length; i++) {
         let startDate = this.parseToDate(
@@ -213,7 +224,7 @@ export default {
       }
     },
     handleInfoManagement() {
-      this.$router.push({ name: "user" });
+      this.$router.push({name: "user"});
     },
     async handleNotificationRowClick(row) {
       console.log(row.link);
@@ -225,10 +236,10 @@ export default {
       this.notificationData.title = res.data.title;
     },
     moreNotifications() {
-      this.$router.push({ name: "notifications" });
+      this.$router.push({name: "notifications"});
     },
     moreStatList() {
-      this.$router.push({ name: "todoList" });
+      this.$router.push({name: "todoList"});
     },
     //未测试
     async handleStatListRowClick(row) {
@@ -246,15 +257,15 @@ export default {
       this.countData = statsRes.data;
       this.countData.statsData = JSON.parse(this.countData.statsData);
       const detailRes = await getStatsDetail(row.id);
-      if(detailRes){
+      if (detailRes) {
         this.disabledData = true;
         let data = JSON.parse(detailRes.data);
         let loopTimes = this.countData.statsData.length;
         for (let i = 0; i < loopTimes; i++) {
           this.countData.statsData[i].projectRules.value =
-          data[this.countData.statsData[i].projectName];
+            data[this.countData.statsData[i].projectName];
         }
-      }else{
+      } else {
         this.disabledData = false;
       }
       this.whileLoading = false;
@@ -276,16 +287,16 @@ export default {
             data[headerItem.key] =
               this.countData.statsData[i].projectRules.value;
           }
-          const res = await fillStats(header,data,this.statsID,this.fillStatus);
-          if(res){
+          const res = await fillStats(header, data, this.statsID, this.fillStatus);
+          if (res) {
             this.$message({
-                message: "信息提交成功",
-                type: "success",
+              message: "信息提交成功",
+              type: "success",
             })
-          }else{
+          } else {
             this.showTodoListDialog = false;
           }
-        }else{
+        } else {
           // not valid
         }
       });
